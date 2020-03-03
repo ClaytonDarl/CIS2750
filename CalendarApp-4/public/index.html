@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        div.scroll {
+            overflow-x: scroll;
+            overflow-y: scroll; 
+        }
+    </style>
+<head>
+    <title align="center">Clayton Darlington's Janky Webpage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This website is neat">
+    <meta name="keywords" content="BYLAT">
+    <meta name="author" content="Clayton Darlington">
+    <!-- Load jquery, bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <!-- Custom CSS End -->
+</head>
+<body>
+    <h3 align="centre">Clayton Darlington's Janky Webpage</h3>
+    <hr>
+        
+        <div id="StatusPanel" class="table">
+                <h3 align="center">Status Panel</h3>    
+        <table id="StatusTable" border="1">
+        <tbody>
+        <!--This is the File Log Panel -->
+        </tbody>
+            </table>
+            <!--End of File Log Panel-->
+        </div>
+    <div>
+        <button id="clearStatBtn" type="button">Clear Status</button>
+    </div>
+    
+    <hr>
+    <h3 align="center">File Log Panel</h3>
+    <div id="FileLogPanel" class="table">
+            
+    <table id="FileLogTable" border="1">
+    <tbody>
+    <!--This is the File Log Panel -->
+        <tr>
+            <th>File name</th>
+            <th>Version</th>
+            <th>Product ID</th>
+            <th>Number of Events</th>
+            <th>Number of Properties</th>
+        </tr>
+    </tbody>
+        </table>
+        <!--End of File Log Panel-->
+    </div>
+    <!-- Upload Button-->
+    <div class='form-group'>
+        <form>
+                <input id="fileInput" type="file" name="name"></input> 
+        </form> 
+                <button id="uploadBtn" type="button"> Upload </button> 
+        
+        
+            
+    </div>
+        <!-- End Upload Button-->
+    <div.boxed class="boxed" style="width:50%">
+        
+    </div>
+    <div class="dropdown">
+        <!-- Drop down menu for selecting a Calendar to view-->
+        <form style="display: block">
+            <select id="calViewDrop">Select a Calendar
+            </select>
+        </form>
+        <!-- End drop down menu for Calendar view-->
+    </div>
+    <div id="CalendarViewPanel" class="table">
+        <h3 align="center">Calendar View Panel</h3>
+            
+        <table  id="calViewTable" border="1">
+        <!--This is the Calendar View Panel-->
+        <tr>
+            <th>Event No</th>
+            <th>Start Date</th>
+            <th>Start Time</th>
+            <th>Summary</th>
+            <th>Props</th>
+            <th>Alarms</th>
+        </tr>
+        </table>
+        <!--End of Calendar View Panel-->
+        
+    </div>
+    <input type="text" id="findEvtNum" name="evtNum" value="">
+    <button id="showPropBtn" type="button">Show Props</button>
+    <button id="showAlarmBtn" type="button">Show Alarm</button>
+<div class="row-fluid">
+    <div.boxed class="boxed" style="width:50%">
+        <button class="span4 text-left" id="showCalFormBtn">Create Calendar</button>
+        <button class="span4 text-left" id="showEvtBtn">Create Event</button>
+       
+        <div align="center">
+            <!--Create Calendar Form-->
+                <form id="createCalForm">
+                    File Name: fileName.ics<br>
+                    <input id="calFileName" type="text" name="fileName" value="">
+                    <br>
+                    Product ID<br>
+                    <input id="prodID" type="text" name="prodID" value="">
+                    <br>
+                    Version<br>
+                    <input id="version" type="text" anme="version" value="">
+                    <br>
+                    UID:<br>
+                    <input id="UID" type="text" name="UID" value="">
+                    <br>
+                    Start Date: YYYYMMDDTHHMMSSZ (Z for UTC)<br>
+                    <input id="calSDT" type="text" name="startDate" value="">
+                    <br>
+                    Start Time: HHMMSSZ (Z for UTC)<br>
+                    <input id="calendarStartTime" type="text" name="startTime" value="">
+                    <br>
+                    Summary:<br>
+                    <input id="calSummary" type="text" name="summary" value="">
+                    <br>
+                    <button id="creatCalBtn" type="button">Create Calendar</button>
+                </form>
+                
+        </div>
+        <br>
+        <!--End Create Cal Form-->
+        <div align="center">
+            <form id="createEvtForm">
+                <!--Add the drop down here-->
+                <select id="evtDropDown"> Select a Calendar 
+                </select>
+                    <br>
+                    UID:<br>
+                    <input id="theUid" type="text" name="uid" value="">
+                    <br>
+                    Start Date: YYYYMMDDTHHMMSSZ (Z for UTC)<br>
+                    <input id="evtSDT" type="text" name="startDate" value="">
+                    <br>
+                    Start Time: YYYMMDDTHHMMSSZ (Z for UTC)<br>
+                    <input id="evtST" type="text" name="startTime" value="">
+                    <br>
+                    Summary:<br>
+                    <input id="evtSum" type="text" name="summary" value="">
+                    <br>
+                    <button id="createEvtBtn" type="button">Create Event</button>
+            </form>
+        </div>
+
+    </div>
+    </div.boxed>
+    <!-- A4 Functionalty goes here-->
+    <h3 align="centre"> A4 Functionality</h3>
+    <div>
+            <form id="databaseLogin" align="center">
+                <br>Username:
+                <input id="username" type="text" name="username" value="">
+                <br>Password:
+                <input id="password" type="password" name="password" value="">
+                <br>Database name:
+                <input id="databaseName" type="text" name="dbName" value="">
+                <br>
+                <button id="databaseLoginBtn" type="button">Login</button>
+                <br>
+                <button id="storeFiles" type="button" >Store Files</button>
+            
+                <button id="clearData" type="button">Clear Data</button>
+                
+                <button id="displayDBStatus" type="button">Display Status</button>
+                <br>
+                <select id="queryDropDown">Select a Query
+                    <option value="Display Events">Display Events</option>
+                    <option value="Display Events from File">Display Events from File</option>
+                    <option value="Display Conflicting Events">Display Conflicting Events</option>
+                    <option value="Display Distinct Trigger Value">Display Distinct Trigger Value</option>
+                    <option value="Get Events without Summary">Get Events without Summary</option>
+                    <option value="Get Events with empty Organizer">Get Events with empty Organizer</option>
+                </select>
+            </form>
+            <form id="displayEventsForm">
+                <button id="displayEventsBtn" type="button">Display Events</button>
+            </form>
+            <form id="displayCalEventForm">
+                Calendar File<input id="displayEvtCalIn" type="text" name="displayEvtCal" value=""><br>
+                <button id="displayCalEvent" type="button">Display Calendar Event</button>
+            </form>
+            <form id="displayConfilctForm">
+                <button id="displayConflictBtn" type="button">Display Conflict Events</button>
+            </form>
+            <form id="displayAlarmsForm">
+                <button id="displayAlarmsBtn" type="button">Display Tiggers</button>
+            </form>
+            <form id="eventSummaryForm">
+                <button id="eventSumBtn" type="button">Get Events without Summary</button>
+            </form>
+            <form id="avgEventForm">
+                <button id="evtCountBtn" type="button">Get Num Events with empty Organizer</button>
+            </form>
+    </div>
+    <h3>A4 Display Table</h3>
+    <div id="A4display" class="table">
+            
+            <table id="A4displayTable" border="1">
+            <tbody>
+            <!--This is the File Log Panel -->
+                
+            </tbody>
+                </table>
+                <!--End of File Log Panel-->
+            </div>
+    <!-- END A4 FUNCTIONALITY-->
+</div>
+    <!-- Leave me at the bottom of body -->
+    <script src="/index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
