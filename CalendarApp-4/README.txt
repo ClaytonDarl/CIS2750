@@ -2,9 +2,6 @@ Clayton Darlington 0963286
 CIS2750: Assignment 4
 April 5th 2019
 
-***
-The upload button is disabled due to a bug when attempting to upload megaCal.ics, megaCal1.ics and sourceCal1.ics. If you want to use it, uncomment it in index.js. It is set up to block those 3 calendar files as well.
-***
 
 To Run:
 
